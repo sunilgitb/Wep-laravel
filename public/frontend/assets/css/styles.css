@@ -1149,6 +1149,25 @@ main.container {
   text-transform: uppercase;
   color: #0047ff;
 }
+
+/* @media (max-width: 768px) {
+  .ourblog__title {
+    margin-top: -412px;
+  }
+  .testimonial__item {
+    margin-top:40px;
+  }
+} */
+
+@media (max-width: 768px) {
+  .ourblog__title {
+    margin-top: -40px !important;
+  }
+  .testimonial__item {
+    margin-top: 20px;
+  }
+}
+
 @media (min-width: 992px) {
   .ourblog {
     margin-bottom: 146px;
@@ -1357,8 +1376,9 @@ main.container {
   .footer__copyright {
     font-size: 14px;
     line-height: 20px;
-    max-width: 165px;
-    text-align: left;
+    max-width: 300px;
+    text-align: rigt;
+    margin-top: -16px;
     justify-content: flex-start;
   }
   .footer .hide-on-desktop {
@@ -1397,7 +1417,7 @@ main.container {
     display: block;
   }
   .footer__legal-links {
-    background-color: white;
+    /* background-color: white; */
     line-height: 20px;
     padding: 12px 0;
     color: #9c9c9c;
@@ -1441,6 +1461,7 @@ main.container {
 }
 .team__member-img {
   margin-bottom: 12px;
+  margin-left: 30px!important;
   position: relative;
 }
 .team__member-img:before {
@@ -1470,7 +1491,7 @@ main.container {
   left: 0;
   z-index: -1;
   height: 100%;
-  background: linear-gradient(180deg, #0af4ca 0%, rgba(0, 71, 255, 0) 100%);
+  background: linear-gradient(180deg, #0047ff 0%, rgba(0, 71, 255, 0) 100%);
   border-radius: 5px;
   transform: rotate(-180deg) scale(1);
   transition: all 0.2s ease-out;
@@ -1756,11 +1777,13 @@ main.container {
   font-size: 16px;
   line-height: 24px;
   margin-top: 4px;
+  color: #0047ff;
 }
 .workgrid__item-text {
   font-weight: 500;
   font-size: 12px;
   line-height: 18px;
+  color: #0047ff;
   /* identical to box height */
 
   text-align: center;
@@ -2032,6 +2055,7 @@ main.container {
 .blog__title {
   font-size: 16px;
   line-height: 20px;
+  color: #0047ff!important;
   margin: 12px 0;
 }
 .blog__meta {
@@ -2064,6 +2088,7 @@ main.container {
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
+  color:#0047ff!important;
   margin-top: 20px;
 }
 .blog p {
@@ -2118,6 +2143,7 @@ main.container {
     font-size: 60px;
     line-height: 70px;
     margin-top: 80px;
+    color: #0047ff;
   }
   .blog__meta {
     font-size: 16px;
@@ -2125,10 +2151,11 @@ main.container {
   .blog h2 {
     font-size: 30px;
     line-height: 34px;
+    color:#0047ff;
   }
   .blog p,
   .blog__excerpt {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 30px;
   }
   .blognav__row {

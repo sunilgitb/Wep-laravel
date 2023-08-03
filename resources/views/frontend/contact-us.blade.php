@@ -2,7 +2,7 @@
 @include('frontend.layouts.header')
 
 <body>
-@if ($errors->any())
+<!-- @if ($errors->any())
    <div class="alert alert-danger">
       <ul>
          @foreach ($errors->all() as $error)
@@ -10,8 +10,12 @@
          @endforeach
       </ul>
    </div>
-@endif
-
+@endif -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Tech Simians</title>
+</head>
 
     <main>
       <section class="contact">
@@ -24,28 +28,28 @@
     <div id="success-message" class="alert alert-success">
         {{ session('success') }}
     </div>
-@endif
+    @endif
     <div class="input">
-        <input class="input__field" placeholder="Name" name="name" required />
+        <input class="input__field" placeholder="Name" name="name" value="{{ old('name') }}" required />
         @error('name')
         <div class="input__message">{{ $message }}</div>
         @enderror
     </div>
     <div class="input">
-        <input class="input__field" placeholder="Email" type="email" name="email" required />
+        <input class="input__field" placeholder="Email" type="email" name="email" value="{{ old('email') }}" required />
         @error('email')
-        <div class="input__message">{{ $message }}</div>
+        <div class="input__message" style="color:red;">{{ $message }}</div>
         @enderror
     </div>
     <div class="input">
-        <input class="input__field" placeholder="Phone" name="phone" type="tel" maxlength="10" required />
+        <input class="input__field" placeholder="Phone" name="phone" type="tel" maxlength="10" value="{{ old('phone') }}" required />
         @error('phone')
         <div class="input__message">{{ $message }}</div>
         @enderror
     </div>
     <div class="input">
         <textarea name="message" class="input__field input__field--textarea" placeholder="Message" required
-            cols="30" rows="5"></textarea>
+            cols="30" rows="5">{{ old('message') }}</textarea>
         @error('message')
         <div class="input__message">{{ $message }}</div>
         @enderror
@@ -54,6 +58,7 @@
         <button type="submit" class="button button--white">Send request</button>
     </div>
 </form>
+
 
           <div class="contact__right">
             <div class="contact__item">
@@ -88,9 +93,8 @@
                 </svg>
               </div>
               <div class="contact__item-text">
-                302, Options Primo, MIDC Industry Area, Andheri East, Mumbai,
-                India.
-                <a href="#" target="_blank"
+              B/305, Everest Chambers, Marol Naka, Andheri East, Mumbai - 400059, India
+                <a href="{{url('https://www.google.com/maps/dir/19.1299584,72.8334336/techsimians/@19.1190713,72.8200359,13z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3be7b1e3b0d9d8ab:0x291f369c19244030!2m2!1d72.8797716!2d19.1083072?entry=ttu')}}" target="_blank"
                   >Direction
                   <svg
                     width="11"

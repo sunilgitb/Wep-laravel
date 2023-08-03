@@ -3,13 +3,13 @@
         <div class="footer__company">
           <a href="/" class="footer__logo"><img src="{{asset('frontend/assets/img/new-logo.png')}}" alt=""></a>
           <div class="footer__social">
-            <a href="#" target="_blank" class="footer__social-icon"><img src="{{asset('frontend/assets/img/facebook.svg')}}" alt="Facebook"></a>
-            <a href="#" target="_blank" class="footer__social-icon"><img src="{{asset('frontend/assets/img/youtube.svg')}}" alt="Youtube"></a>
-            <a href="#" target="_blank" class="footer__social-icon"><img src="{{asset('frontend/assets/img/twitter.svg')}}" alt="Twitter"></a>
-            <a href="#" target="_blank" class="footer__social-icon"><img src="{{asset('frontend/assets/img/instagram.svg')}}" alt="Instagram"></a>
-            <a href="#" target="_blank" class="footer__social-icon"><img src="{{asset('frontend/assets/img/linkedin.svg')}}" alt="LinkedIn"></a>
+            <a href="{{url('https://www.facebook.com/profile.php?id=100067748465412')}}" target="_blank" class="footer__social-icon"><img src="{{asset('frontend/assets/img/facebook.svg')}}" alt="Facebook"></a>
+            <!-- <a href="#" target="_blank" class="footer__social-icon"><img src="{{asset('frontend/assets/img/youtube.svg')}}" alt="Youtube"></a> -->
+            <!-- <a href="#" target="_blank" class="footer__social-icon"><img src="{{asset('frontend/assets/img/twitter.svg')}}" alt="Twitter"></a> -->
+            <a href="{{url('https://www.instagram.com/techsimians/')}}" target="_blank" class="footer__social-icon"><img src="{{asset('frontend/assets/img/instagram.svg')}}" alt="Instagram"></a>
+            <a href="{{url('https://www.linkedin.com/company/13608548/admin/feed/posts/')}}" target="_blank" class="footer__social-icon"><img src="{{asset('frontend/assets/img/linkedin.svg')}}" alt="LinkedIn"></a>
           </div>
-          <div class="footer__copyright hide-on-mobile">©Tech Simians. All Rights Reserved <script>document.write(new Date().getFullYear())</script></div>
+          <!-- <div class="footer__copyright hide-on-mobile">©Tech Simians. All Rights Reserved <script>document.write(new Date().getFullYear())</script></div> -->
          
         </div>
         <div class="footer__accordian">
@@ -59,14 +59,17 @@
           </div>
         </div>
       </div>
-      <div class="footer__copyright hide-on-desktop">©Tech Simians. All Rights Reserved <script>document.write(new Date().getFullYear())</script></div>
-      <div class="footer__legal-links hide-on-mobile">
-         <div class="footer__legal-links-menu" style="margin-bottom:-22px;">
-          <a href="{{url('terms-of-service')}}">Terms of Service</a> <a href="{{url('privacy-policy')}}">Privacy Policy</a>
-        </div>
-      </div>
-    </footer>
+      
+      <div class="footer__legal-links hide-on-mobile" style="float:right;">
+         <div class="footer__legal-links-menu" style="margin-bottom:-px;">
+          <a href="{{url('terms-of-service')}}">Terms of Service</a> <a href="{{url('privacy-policy')}}" >Privacy Policy</a>
 
+        </div>
+        
+      </div>
+    
+    </footer>
+    <div class="footer__copyright hide-on-desktop">©<script>document.write(new Date().getFullYear())</script> Tech Simians. All Rights Reserved</div>
     <script>
     // Wait for the document to be ready
     document.addEventListener('DOMContentLoaded', function() {
@@ -78,7 +81,7 @@
             // Hide the success message after 2 seconds
             setTimeout(function() {
                 successMessage.style.display = 'none';
-            }, 3000);
+            }, 5000);
         }
     });
 </script>

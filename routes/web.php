@@ -101,7 +101,20 @@ Route::get('/posts', [PostController::class, 'posts']);
 Route::get('/blog', [PostController::class, 'showMore']);
 
 
+Route::get('/can-good-design-grow-your-business-and-customers', function () {
+    return view('frontend.blog.next-blog');
+});
+Route::get('/7-ways-neuromarketing-impact-marketing', function () {
+    return view('frontend.blog.previous-blog');
+});
+Route::get('/test', function () {
+    return view('frontend.test');
+});
+
 Route::get('/blog/{id}', [PostController::class, 'showBlog'])->name('blog.show');
 
 Route::get('total-counts', [UserController::class, 'totalCount']);
+
+// routes/web.php
+
 

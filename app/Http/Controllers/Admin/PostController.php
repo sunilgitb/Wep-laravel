@@ -28,7 +28,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $Post= Post::paginate(4);
+        $Post= Post::latest()->get();
 
         return view('post.index',['posts'=>$Post]);
     }
@@ -61,9 +61,15 @@ class PostController extends Controller
             $blog->description = Str::limit($blog->description, 150);
         }
     
-        return view('blog', compact('posts'));
+        return view('frontend.blog.blog', compact('posts'));
     }
-
+    public function nextBlog(){
+    
+        return view('frontend.blog.next-blog');
+    }
+    public function previousBlog(){
+        return view('frontend.blog.previous-blog');
+    }
     public function showBlog($id)
     {
         $post = Post::findOrFail($id);

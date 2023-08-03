@@ -2,7 +2,11 @@
 @include('frontend.layouts.header')
 
 <body>
-   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Tech Simians</title>
+</head>
     <main class="container">
       <!-- <section class="breadcrumb">
         <a href="{{url('/')}}" class="breadcrumb__link">Home</a>
@@ -197,7 +201,7 @@
           >Go to careers</a
         >
       </section>
-      <section class="openings">
+      <!-- <section class="openings">
         <div class="opening__title">Job Openings</div>
         <a class="opening__item" href="{{url('job-openings')}}">
           <div class="opening__item-title">Visual Designer Intern</div>
@@ -205,7 +209,7 @@
             Grow as a designer in a way school can’t teach
           </div>
         </a>
-      </section>
+      </section> -->
     </main>
     
   </body>

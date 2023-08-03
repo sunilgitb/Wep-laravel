@@ -1,8 +1,6 @@
 @extends('frontend.layouts.app')
 @include('frontend.layouts.header')
-  <body>
-    
-     
+
     <section class="banner">
       <div class="banner__shadowtext">Tech<br />Simians</div>
       <div class="banner__text">Smart Sapians on duty</div>
@@ -781,6 +779,16 @@ typeWriterEffect();
           </div>
         </div>
     </div>
+    <style>
+      /* Default styles for all devices *
+/* Styles for mobile devices (max-width: 767px) */
+@media (max-width: 767px) {
+  .testimonial__item {
+    margin-top: 560px;
+  }
+}
+
+    </style>
     <section class="ourblog">
       
       <div class="ourblog__row">
@@ -794,21 +802,21 @@ typeWriterEffect();
           <div class="accordion--content accordion--active">
             <div class="accordion-inner">
                 Follow these 7 Neuromarketing ways and measures to create an
-                astonishing impact in your upcoming marketing campaign. <a href="blog-details.html">Read now!</a>
+                astonishing impact in your upcoming marketing campaign. <a href="{{url('blog')}}">Read now!</a>
             </div>
           </div>
           <div class="accordion--trigger"><svg width="24" height="17"  viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m3.07 3.93 8.48 8.49 8.49-8.49" stroke="#0047FF" stroke-width="6" stroke-linecap="round"/></svg>7 Ways Neuromarketing Impact Marketing Campaign</div>
           <div class="accordion--content">
             <div class="accordion-inner">
                 Follow these 7 Neuromarketing ways and measures to create an
-                astonishing impact in your upcoming marketing campaign. <a href="blog-details.html">Read now!</a>
+                astonishing impact in your upcoming marketing campaign. <a href="{{url('blog')}}">Read now!</a>
             </div>
           </div>
           <div class="accordion--trigger"><svg width="24" height="17"  viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m3.07 3.93 8.48 8.49 8.49-8.49" stroke="#0047FF" stroke-width="6" stroke-linecap="round"/></svg>Can Good Design Grow Your Business And Customers?</div>
           <div class="accordion--content">
             <div class="accordion-inner">
                 Follow these 7 Neuromarketing ways and measures to create an
-                astonishing impact in your upcoming marketing campaign. <a href="blog-details.html">Read now!</a>
+                astonishing impact in your upcoming marketing campaign. <a href="{{url('blog')}}">Read now!</a>
             </div>
         </div>
       </div>

@@ -7,6 +7,8 @@ use App\Models\Application;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ApplicationSubmitted;
+use Illuminate\Support\Facades\Validator;
+
 class ApplicationController extends Controller
 {
     
@@ -40,48 +42,73 @@ class ApplicationController extends Controller
     }
 
 
-public function ApplyApplication(Request $request)
-{
-    $validatedData = $request->validate([
-        'name' => 'required',
-        'job_title' => 'required',
-        'email' => 'required|email',
-        'phone' => 'required',
-        'message' => 'required',
-        'file' => 'required|mimes:pdf,doc,docx,jpeg,jpg,png',
-    ]);
 
-    // Convert the first character of each word in job_title to uppercase
-    $jobTitle = ucwords($validatedData['job_title']);
-    $email = strtolower($validatedData['email']);
 
-    $file = $request->file('file');
-    $filePath = $file->store('application_files'); // Change 'application_files' to your desired storage directory
-
-    Application::create([
-        'name' => $validatedData['name'],
-        'job_title' => $jobTitle,
-        'email' => $email,
-        'phone' => $validatedData['phone'],
-        'message' => $validatedData['message'],
-        'file' => $filePath,
-    ]);
-
+    public function ApplyApplication(Request $request)
+    {
+        // Validate the incoming request data
+        $messages = [
+            'file.required' => 'Please select a file to upload.',
+            'file.max_mb' => 'The file size should not exceed :max 5 MB.',
+            'file.mimes' => 'The file must be a PDF, DOC, DOCX, JPEG, JPG, or PNG.',
+            'file.image_dimensions' => 'The image dimensions should not exceed :max_widthx:6000px max_height: 6000 pixels.',
+        ];
+    
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'job_title' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'message' => 'required',
+            'file' => 'required|file|max_mb:5|mimes:pdf,doc,docx,jpeg,jpg,png|image_dimensions:6000,6000', // Adjust the max size (in kilobytes) as needed
+        ], $messages);
+        
+        // If validation fails, redirect back to the form with error messages and input data
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
+        // Validation succeeded, continue with processing the application
+    
+        // Convert the first character of each word in job_title to uppercase
+        $jobTitle = ucwords($request->input('job_title'));
+        $email = strtolower($request->input('email'));
+    
+        // File upload and storage logic
+        $file = $request->file('file');
+        $filePath = $file->store('application_files'); // Change 'application_files' to your desired storage directory
+    
+        // Application creation
+        Application::create([
+            'name' => $request->input('name'),
+            'job_title' => $jobTitle,
+            'email' => $email,
+            'phone' => $request->input('phone'),
+            'message' => $request->input('message'),
+            'file' => $filePath,
+        ]);
+    
+        // Send email notification
+        // ... Your email sending logic ...
+        
     // Send email notification
-    $applicationData = [
-        'name' => $validatedData['name'],
-        'job_title' => $jobTitle,
-        'email' => $email,
-        'phone' => $validatedData['phone'],
-        'message' => $validatedData['message'],
-        'file_path' => $filePath,
-    ];
-    Mail::to($email)->send(new ApplicationSubmitted($applicationData));
+    // $applicationData = [
+    //     'name' => $validatedData['name'],
+    //     'job_title' => $jobTitle,
+    //     'email' => $email,
+    //     'phone' => $validatedData['phone'],
+    //     'message' => $validatedData['message'],
+    //     'file_path' => $filePath,
+    // ];
+    // Mail::to($email)->send(new ApplicationSubmitted($applicationData));
 
-    return redirect()->back()->with('success', 'Application submitted successfully.');
-
-    // Additional logic or redirect after successful submission
-}
+    
+        // Redirect back to the form with a success message
+        return redirect()->back()->with('success', 'Application submitted successfully.');
+    
+        // Additional logic or redirect after successful submission
+    }
+    
 
 
 public function download($id)

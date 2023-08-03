@@ -9,11 +9,11 @@
 
 <footer class="main-footer">
 
-<div class="float-right d-none d-sm-inline">
+<!-- <div class="float-right d-none d-sm-inline">
 Anything you want
-</div>
+</div> -->
 
-<strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+<strong>©<script>document.write(new Date().getFullYear())</script> Tech Simians. All Rights Reserved </strong>
 </footer>
 </div>
 

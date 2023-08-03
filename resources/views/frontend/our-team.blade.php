@@ -1,7 +1,11 @@
 @extends('frontend.layouts.app')
 @include('frontend.layouts.header')
 <body>
-   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - Tech Simians</title>
+</head>
     <main class="container">
       <section class="breadcrumb">
         <a href="{{url('/')}}" class="breadcrumb__link">Home</a>

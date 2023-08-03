@@ -1,31 +1,19 @@
 @extends('frontend.layouts.app')
 @include('frontend.layouts.header')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <body>
-  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Tech Simians</title>
+</head>
   <main class="">
     <section class="">
       <a href="{{url('/')}}" class="breadcrumb__link"></a>
       <a href="{{url('careers')}}" class=""></a>
     </section>
-    @if ($errors->any())
-    <div class="alert alert-danger">
-      <ul>
-         @foreach ($errors->all() as $error)
-         <li>{{ $error }}</li>
-         @endforeach
-        </ul>
-      </div>
-      @endif
-      @if(session('success'))
-      <div id="success-message" class="alert alert-success">
-        {{ session('success') }}
-      </div>
-      @endif
-      
+    
+
 
 <section>
   <img class="full-width-img" src="{{asset('frontend/assets/img/techsimians_2.jpg')}}">
@@ -93,8 +81,22 @@ body, html {
 
 
 
-    
+
       <section class="openings">
+      @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+         @foreach ($errors->all() as $error)
+         <li>{{ $error }}</li>
+         @endforeach
+        </ul>
+      </div>
+      @endif
+      @if(session('success'))
+      <div id="success-message" class="alert alert-success" style="float:right;">
+        {{ session('success') }}
+      </div>
+      @endif
         <div class="opening__title" style="text-align:center; margin-top:50px;">Job Openings</div>
         <!-- <a class="opening__item" href="{{url('job-openings')}}">
           <div class="opening__item-title">Visual Designer Intern</div>
@@ -103,6 +105,7 @@ body, html {
           </div> -->
         </a>
       </section>
+    
       <section class="jobs-list-tags js-filter" style="margin-top:-80px">
     <div class="container">
       <div class="job-tags-toggle js-filter-group">
@@ -114,138 +117,30 @@ body, html {
         </label>
         
         <label class="job-tag-toggle">
-          <!-- <input class="" name="job-tag-toggle" type="radio" value="[data-filter~=support]"> -->
+          <input class="" name="job-tag-toggle" type="radio" value="[data-filter~=support]">
           <div class="job-title job-tag-toggle__content" data-job-id="engineering" job-tag-toggle__content">
-          <div class="job-tag-toggle__dot job-tag-toggle__dot--engineering job-tag-toggle"></div>Quality Analyst
+          <div class="job-tag-toggle__dot--engineering job-tag-toggle"></div>Quality Analyst
         </div>
         
       </label>
       <label class="job-tag-toggle">
-        <!-- <input class="" name="job-tag-toggle" type="radio" value="[data-filter~=product]"> -->
+        <input class="" name="job-tag-toggle" type="radio" value="[data-filter~=product]">
         <div class="job-title job-tag-toggle__content" data-job-id="product">
-          <div class="job-tag-toggle__dot job-tag-toggle__dot--product job-tag-toggle"></div> product
+          <div class="job-tag-toggle__dot--product job-tag-toggle"></div> Product
         </div>
       </label>
       <label class="job-tag-toggle">
         <input class="" name="job-tag-toggle" type="radio" value="[data-filter~=support]">
         <div class="job-title job-tag-toggle__content" data-job-id="support">
-          <div class="job-tag-toggle__dot job-tag-toggle__dot--support"></div> support
+          <div class="job-tag-toggle__dot--support"></div> Support
         </div>
       </label>
-      <label class="job-tag-toggle">
-        <input class="" name="job-tag-toggle" type="radio" value="[data-filter~=finance]">
-        <div class="job-title job-tag-toggle__content" data-job-id="finance">
-          <div class="job-tag-toggle__dot job-tag-toggle__dot--finance"></div> finance
-        </div>
-      </label>
-      <label class="job-tag-toggle">
-        <input class="" name="job-tag-toggle" type="radio" value="[data-filter~=security]">
-        <div class="job-title job-tag-toggle__content" data-job-id="security">
-          <div class="job-tag-toggle__dot job-tag-toggle__dot--security"></div> security
-        </div>
-      </label>
-      <label class="job-tag-toggle">
-        <input class="" name="job-tag-toggle" type="radio" value="[data-filter~=operations]">
-        <div class="job-title job-tag-toggle__content" data-job-id="operations">
-          <div class="job-tag-toggle__dot job-tag-toggle__dot--operations"></div> operations
-        </div>
-      </label>
-      <!-- <label class="job-tag-toggle">
-        <input class="" name="job-tag-toggle" type="radio" value="[data-filter~=marketing]">
-        <div class="job-title job-tag-toggle__content" data-job-id="marketing">
-          <div class="job-tag-toggle__dot job-tag-toggle__dot--marketing"></div> marketing
-        </div>
-      </label> -->
-      <!-- <label class="job-tag-toggle">
-        <input class="job-tag-toggle__input" name="job-tag-toggle" type="radio" value="[data-filter~=data]">
-        <div class="job-title job-tag-toggle__content" data-job-id="data">
-          <div class="job-tag-toggle__dot job-tag-toggle__dot--data"></div> data
-        </div> -->
-
-        
-        <!-- </label>
-        <label class="job-tag-toggle">
-          <input class="job-tag-toggle__input" name="job-tag-toggle" type="radio" value="[data-filter~=design]">
-          <div class="job-tag-toggle__content">
-            <div class="job-tag-toggle__dot job-tag-toggle__dot--design"></div> design
-          </div>
-        </label>
-        <label class="job-tag-toggle">
-          <input class="job-tag-toggle__input" name="job-tag-toggle" type="radio" value="[data-filter~=legal]">
-          <div class="job-tag-toggle__content">
-            <div class="job-tag-toggle__dot job-tag-toggle__dot--legal"></div> legal
-          </div>
-        </label>
-        <label class="job-tag-toggle">
-          <input class="job-tag-toggle__input" name="job-tag-toggle" type="radio" value="[data-filter~=sales]">
-          <div class="job-tag-toggle__content">
-            <div class="job-tag-toggle__dot job-tag-toggle__dot--sales"></div> sales
-          </div>
-        </label> -->
+    
       </div>
     </div>
   </section>
   
-  <!-- <section class="jobs-list js-filtration-list" id="MixItUp38F87D">
-    <div class="container">
-      <div class="mixitup-controls">
-        <button class="filter control" data-filter="all">All Jobs</button>
-        <button class="filter control" data-filter=".engineering">Engineering</button>
-        <button class="filter control" data-filter=".product">Product</button>
-        <button class="filter control" data-filter=".support">Support</button>
-        <button class="filter control" data-filter=".finance">Finance</button>
-        <button class="filter control" data-filter=".security">Security</button>
-        <button class="filter control" data-filter=".operations">Operations</button>
-        <button class="filter control" data-filter=".marketing">Marketing</button>
-        <button class="filter control" data-filter=".data">Data</button>
-        <button class="filter control" data-filter=".design">Design</button>
-        <button class="filter control" data-filter=".legal">Legal</button>
-        <button class="filter control" data-filter=".sales">Sales</button>
-      </div>
-      
-      <div class="jobs-container mixitup-container" id="list">
-        <div class="mix engineering" data-bound="">
-          <h2 class="job-title">Software Engineer</h2>
-          <p class="job-description">We are seeking a skilled software engineer to join our engineering team.</p>
-          <p class="job-tags">Engineering, Software Development, Web Development</p>
-        </div>
-        <div class="mix product" data-bound="">
-          <h2 class="job-title">Product Manager</h2>
-          <p class="job-description">We are looking for an experienced product manager to lead our product team.</p>
-          <p class="job-tags">Product Management, Agile, User Experience</p>
-        </div>
-        <div class="mix support" data-bound="">
-          <h2 class="job-title">Customer Support Specialist</h2>
-          <p class="job-description">We are hiring a customer support specialist to assist our customers.</p>
-          <p class="job-tags">Customer Service, Troubleshooting, Communication</p>
-        </div>
-        <Add more job listings here -->
-      </div>
-    </div>
-    <!-- </section> -->
-    
-    
-    
-    <!-- <script>
-      // Add event listeners to job title elements
-      const jobTitles = document.querySelectorAll('.job-title');
-      jobTitles.forEach((title) => {
-        title.addEventListener('click', showSelectedJob);
-      });
-      
-      function showSelectedJob(event) {
-        // Hide all job content sections
-        const jobContents = document.querySelectorAll('.job-content');
-        jobContents.forEach((content) => {
-          content.style.display = 'none';
-        });
-        
-        // Show the selected job content
-        const selectedJobId = event.target.getAttribute('data-job-id');
-        const selectedJobContent = document.getElementById(selectedJobId);
-        selectedJobContent.style.display = 'block';
-      }
-      </script> -->
+  
 </body>
 </html>
 
@@ -350,7 +245,7 @@ body, html {
   <div class="card card-animation">
     <div class="card-body">
       <h3 class="card-title">Product</h3>
-      <p class="card-text">Product</p>
+     
       <h4 class="card-subtitle">Job Summary:</h4>
       <p class="card-text">We are seeking a highly organized and experienced Human Resources Specialist to join our team. As a Human Resources Specialist, you will be responsible for managing various HR functions, including recruitment, employee onboarding and offboarding, benefits administration, performance management, employee relations, and compliance with employment laws and regulations. Your role will be critical in maintaining a positive work environment and supporting the company's overall strategic objectives.</p>
       <p class="card-text">Location: Andheri East</p>
@@ -387,78 +282,7 @@ body, html {
         </div>
       </div>
     </section>
-    <br><br>
-    <section id="finance" class="job-content">
-      <div class="card card-animation">
-        <div class="card-body">
-          <h3 class="card-title">Finance</h3>
-          <p class="card-text">We're looking for a curious Software Engineer to join our team! The position will include building great products, tackling interesting challenges, and contributing to our engineering culture. We expect you to work in pairs, use test-driven development, be experienced in building complex web applications, and write both clean and maintainable code.</p>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="float: right; background-color: #0047ff;">
-        Apply Now
-      </button>
-    </div>
   </div>
-</section>
-</div>
-<br><br>
-<div class="container">
-<section id="security" class="job-content">
-  <div class="card card-animation">
-    <div class="card-body">
-      <h3 class="card-title">Security</h3>
-      <p class="card-text">We're looking for a curious Software Engineer to join our team! The position will include building great products, tackling interesting challenges, and contributing to our engineering culture. We expect you to work in pairs, use test-driven development, be experienced in building complex web applications, and write both clean and maintainable code.</p>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="float: right; background-color: #0047ff;">
-        Apply Now
-      </button>
-    </div>
-  </div>
-</section>
-</div>
-<br><br>
-<div class="container">
-<section id="operations" class="job-content">
-  <div class="card card-animation">
-    <div class="card-body">
-      <h3 class="card-title">Operations</h3>
-      <p class="card-text">We're looking for a curious Software Engineer to join our team! The position will include building great products, tackling interesting challenges, and contributing to our engineering culture. We expect you to work in pairs, use test-driven development, be experienced in building complex web applications, and write both clean and maintainable code.</p>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="float: right; background-color: #0047ff;">
-        Apply Now
-      </button>
-    </div>
-  </div>
-</section>
-</div>
-<br><br>
-<div class="container">
-<section id="marketing" class="job-content">
-  <div class="card card-animation">
-    <div class="card-body">
-      <h3 class="card-title">Marketing</h3>
-      <p class="card-text">We're looking for a curious Software Engineer to join our team! The position will include building great products, tackling interesting challenges, and contributing to our engineering culture. We expect you to work in pairs, use test-driven development, be experienced in building complex web applications, and write both clean and maintainable code.</p>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="float: right; background-color: #0047ff;">
-        Apply Now
-      </button>
-    </div>
-  </div>
-</section>
-</div>
-<br><br>
-<!-- <div class="container">
-<section id="data" class="job-content">
-  <div class="card card-animation">
-    <div class="card-body">
-      <h3 class="card-title">Data</h3>
-      <p class="card-text">We're looking for a curious Software Engineer to join our team! The position will include building great products, tackling interesting challenges, and contributing to our engineering culture. We expect you to work in pairs, use test-driven development, be experienced in building complex web applications, and write both clean and maintainable code.</p>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="float: right; background-color: #0047ff;">
-        Apply Now
-      </button>
-    </div>
-  </div>
-</section>
-</div> -->
-
-
-
 <script>
   // JavaScript code for job filtering
 document.addEventListener("DOMContentLoaded", function () {
@@ -507,11 +331,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </script>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Benefits and Perks</title>
     <style>
       /* Reset default styles */
@@ -823,40 +643,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     </style>
 </head>
-<!-- <body>
-  <section class="links">
-    <div class="links-box">
-      <div class="links-box__wrap">
-        <a class="links-box__item links-box__item_services" href="{{url('about-us')}}">
-          <div class="links-box__bg">
-            <picture>
-              <source srcset="{{asset('frontend/assets/img/about.jpg')}}" type="image/webp">
-              <source srcset="{{asset('frontend/assets/img/about.jpg')}}" type="image/jpg">
-              <img alt="" class="links-box__img" src="{{asset('frontend/assets/img/about.jpg')}}">
-            </picture>
-          </div>
-          <div class="links-box__content">
-            <h3 class="links-box__title">About Us</h3>
-            <div class="links-box__subtitle">Our team is jam packed with creative, smart and bubbly people. We inspire each other to improve daily, and be the best and happiest we can be.</div>
-          </div>
-        </a>
-        <a class="links-box__item links-box__item_team" href="{{url('about-us')}}">
-          <div class="links-box__bg">
-            <picture>
-              <source srcset="{{asset('frontend/assets/img/team.jpg')}}" type="image/webp">
-              <source srcset="{{asset('frontend/assets/img/team.jpg')}}" type="image/jpg">
-              <img alt="" class="links-box__img" src="{{asset('frontend/assets/img/team.jpg')}}">
-            </picture>
-          </div>
-          <div class="links-box__content">
-            <h3 class="links-box__title">Team</h3>
-            <div class="links-box__subtitle">We have a team of professionals and experts that ensure every project is in sync with the client requirements in terms of timeliness, quality, consistency and flexibility. With its pool of quality and skilled resources.</div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-</body> -->
+
 
   <style>
     /* Custom CSS for responsive layout */
@@ -900,9 +687,9 @@ document.addEventListener("DOMContentLoaded", function () {
         <a class="links-box__item links-box__item_team" href="{{url('about-us')}}">
           <div class="links-box__bg">
             <picture>
-              <source srcset="{{asset('frontend/assets/img/team.jpg')}}" type="image/webp">
-              <source srcset="{{asset('frontend/assets/img/team.jpg')}}" type="image/jpg">
-              <img alt="" class="links-box__img" src="{{asset('frontend/assets/img/team.jpg')}}" width=100%;>
+              <source srcset="{{asset('frontend/assets/img/team-tech.png')}}" type="image/webp">
+              <source srcset="{{asset('frontend/assets/img/team-tech.png')}}" type="image/jpg">
+              <img alt="" class="links-box__img" src="{{asset('frontend/assets/img/team-tech.png')}}" width=100%;>
             </picture>
           </div>
           <div class="links-box__content">
@@ -914,105 +701,36 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   </section>
 
+
   <!-- Include Bootstrap JS (optional) -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ -->
 
 
 
-@include('frontend.layouts.footer')
+    <style>
+      /* Custom CSS to style the "Choose File" button */
+      input[type="file"] {
+        display: none;
+      }
 
-<!-- Modal -->
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Kindly fill the form</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <form action="{{ route('apply') }}" method="POST" enctype="multipart/form-data">
-    @csrf
-    <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name" required>
-        @error('name')
-        <span class="text-danger">{{ $message }}</span>
-        @enderror
-    </div>
-    <div class="form-group">
-        <label for="name">Job Title</label>
-        <input type="text" name="job_title" class="form-control" id="job_title" placeholder="Enter your job title" required>
-        @error('job_title')
-        <span class="text-danger">{{ $message }}</span>
-        @enderror
-    </div>
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email" required>
-        @error('email')
-        <span class="text-danger">{{ $message }}</span>
-        @enderror
-    </div>
-    <div class="form-group">
-        <label for="phone">Phone</label>
-        <input type="tel" name="phone" class="form-control" id="phone" placeholder="Enter your phone number" maxlength="10" required>
-        @error('phone')
-        <span class="text-danger">{{ $message }}</span>
-        @enderror
-    </div>
-    <div class="form-group">
-        <label for="file">File</label>
-        <input type="file" name="file" id="file" accept=".pdf, .doc, .docx, .jpeg, .jpg, .png" required>
-        @error('file')
-        <span class="text-danger">{{ $message }}</span>
-        @enderror
-    </div>  
-    <div class="form-group">
-        <label for="message">Message</label>
-        <textarea class="form-control" name="message" id="message" rows="2" cols="2" placeholder="Enter your message" required></textarea>
-        @error('message')
-        <span class="text-danger">{{ $message }}</span>
-        @enderror
-    </div>
-    
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+      .custom-file-upload {
+        border: 1px solid #0047ff;
+        color: white;
+        background-color: #0047ff;
+        padding: 6px 12px;
+        cursor: pointer;
+        margin-left: 100px;
+        border-radius: 4px;
+      }
+      
+      /* Style for error messages */
+      .text-danger {
+        color: red;
+      }
+      </style>
 
-    </div>
-  </div>
-</div> -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apply Form</title>
-  <style>
-    /* Custom CSS to style the "Choose File" button */
-    input[type="file"] {
-      display: none;
-    }
-
-    .custom-file-upload {
-      border: 1px solid #0047ff;
-      color: white;
-      background-color: #0047ff;
-      padding: 6px 12px;
-      cursor: pointer;
-      margin-left: 100px;
-      border-radius: 4px;
-    }
-
-    /* Style for error messages */
-    .text-danger {
-      color: red;
-    }
-  </style>
-</head>
-<body>
-
+  
   <!-- Your modal code goes here -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -1028,191 +746,192 @@ document.addEventListener("DOMContentLoaded", function () {
             @csrf
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name" required>
+              <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name" value="{{ old('name') }}" required>
               @error('name')
               <span class="text-danger">{{ $message }}</span>
               @enderror
             </div>
             <div class="form-group">
               <label for="name">Job Title</label>
-              <input type="text" name="job_title" class="form-control" id="job_title" placeholder="Enter your job title" required>
+              <input type="text" name="job_title" class="form-control" id="job_title" placeholder="Enter your job title" value="{{ old('job_title') }}" required>
               @error('job_title')
               <span class="text-danger">{{ $message }}</span>
               @enderror
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email" required>
+              <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email" value="{{ old('email') }}" required>
               @error('email')
               <span class="text-danger">{{ $message }}</span>
               @enderror
             </div>
             <div class="form-group">
               <label for="phone">Phone</label>
-              <input type="tel" name="phone" class="form-control" id="phone" placeholder="Enter your phone number" maxlength="10" required>
+              <input type="tel" name="phone" class="form-control" id="phone" placeholder="Enter your phone number" maxlength="10" value="{{ old('phone') }}" required>
               @error('phone')
               <span class="text-danger">{{ $message }}</span>
               @enderror
             </div>
             <div class="form-group">
-              <label for="file">File</label>
-              <!-- Custom "Choose File" button -->
-              <label for="file" class="custom-file-upload">Choose File</label>
-              <input type="file" name="file" id="file" accept=".pdf, .doc, .docx, .jpeg, .jpg, .png" required>
-              @error('file')
-              <span class="text-danger">{{ $message }}</span>
-              @enderror
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea class="form-control" name="message" id="message" rows="2" cols="2" placeholder="Enter your message" required></textarea>
-              @error('message')
-              <span class="text-danger">{{ $message }}</span>
-              @enderror
-            </div>
-            <button type="submit" class="btn btn-primary" style="background-color: #0047ff;">Submit</button>
-          </form>
-        </div>
+            <label for="file">File</label>
+            <label for="file" class="custom-file-upload">Choose File</label>
+            <input type="file" name="file" id="file" accept=".pdf, .doc, .docx, .jpeg, .jpg, .png" required>
+            <div id="file-name"></div>
+            @error('file')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea class="form-control" name="message" id="message" rows="2" cols="2" placeholder="Enter your message" required>{{ old('message') }}</textarea>
+            @error('message')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+          </div>
+          <button type="submit" class="btn btn-primary" style="background-color: #0047ff;">Submit</button>
+        </form>
       </div>
+      
     </div>
   </div>
-
-</body>
-</html>
-
-
-<!-- Button trigger modal -->
-
-<!-- Modal -->
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-  <script>
-    // Get all job title elements
-    const jobTitles = document.querySelectorAll('.job-title');
-
-    // Add event listener to each job title
-    jobTitles.forEach((title) => {
-      title.addEventListener('click', showSelectedJob);
-    });
-
-    function showSelectedJob(event) {
-      // Hide all job content sections
-      const jobContents = document.querySelectorAll('.job-content');
-      jobContents.forEach((content) => {
-        content.style.display = 'none';
-      });
-
-      // Show the selected job content
-      const selectedJobId = event.target.getAttribute('data-job-id');
-      const selectedJobContent = document.getElementById(selectedJobId);
-      selectedJobContent.style.display = 'block';
-    }
-  </script>
-
- 
+</div>
+<script>
+  const fileInput = document.getElementById('file');
+  const fileNameDisplay = document.getElementById('file-name');
   
-  <script src="script.js"></script>
-</body>
-</html>
-
-  <script>
-    // Get the job description element
-var jobDescription = document.querySelector('.job-description .description-content');
-
-// Get the radio inputs for job tags
-var jobTagInputs = document.querySelectorAll('.job-tag-toggle__input');
-
-// Add event listeners to the job tag inputs
-jobTagInputs.forEach(function(input) {
-  input.addEventListener('click', function() {
-    var selectedValue = this.value;
-
-    if (selectedValue === '[data-filter~=engineering]') {
-      jobDescription.textContent = 'Engineering job description goes here.5';
+  fileInput.addEventListener('change', function() {
+    if (fileInput.files.length > 0) {
+      const fileName = fileInput.files[0].name;
+      fileNameDisplay.textContent = fileName;
     } else {
-      jobDescription.textContent = ''; // Clear the job description if a different job tag is selected
+      fileNameDisplay.textContent = "No file selected";
     }
   });
-});
+</script>
 
-    // Get all job title elements
-    const jobTitles = document.querySelectorAll('.job-title');
+<script>
+  // Get the file input element
+  const fileInput = document.getElementById('file');
+  
+  // Add an event listener to the file input to show the message
+  fileInput.addEventListener('change', function () {
+    const file = fileInput.files[0];
+    
+    // Check if a file is selected
+    if (file) {
+      const fileSizeInMB = file.size / (1024 * 1024);
+      const maxWidth = 1000;
+      const maxHeight = 1000;
+      
+      // Display the message with file size and dimensions restrictions
+      alert(`Selected file: ${file.name}\nSize: ${fileSizeInMB.toFixed(2)} MB\nDimensions: ${maxWidth}x${maxHeight}`);
+    }
+  });
+</script>
+</body>
+</html>
 
-    // Add event listener to each job title
-    jobTitles.forEach((title) => {
-      title.addEventListener('click', showSelectedJob);
-    });
 
-    function showSelectedJob(event) {
-      // Hide all job content sections
+
+
+<script>
+  // Get all job title elements
+  const jobTitles = document.querySelectorAll('.job-title');
+  
+  // Add event listener to each job title
+  jobTitles.forEach((title) => {
+    title.addEventListener('click', showSelectedJob);
+  });
+  
+  function showSelectedJob(event) {
+    // Hide all job content sections
       const jobContents = document.querySelectorAll('.job-content');
       jobContents.forEach((content) => {
         content.style.display = 'none';
       });
-
+      
       // Show the selected job content
       const selectedJobId = event.target.getAttribute('data-job-id');
       const selectedJobContent = document.getElementById(selectedJobId);
       selectedJobContent.style.display = 'block';
     }
+    </script>
+
+
+
+<script>
+  // Get the job description element
+  var jobDescription = document.querySelector('.job-description .description-content');
+  
+  // Get the radio inputs for job tags
+  var jobTagInputs = document.querySelectorAll('.job-tag-toggle__input');
+  
+  // Add event listeners to the job tag inputs
+  jobTagInputs.forEach(function(input) {
+    input.addEventListener('click', function() {
+      var selectedValue = this.value;
+      
+      if (selectedValue === '[data-filter~=engineering]') {
+        jobDescription.textContent = 'Engineering job description goes here.5';
+      } else {
+        jobDescription.textContent = ''; // Clear the job description if a different job tag is selected
+      }
+    });
+  });
+  
+  // Get all job title elements
+  const jobTitles = document.querySelectorAll('.job-title');
+  
+  // Add event listener to each job title
+  jobTitles.forEach((title) => {
+    title.addEventListener('click', showSelectedJob);
+  });
+  
+  function showSelectedJob(event) {
+    // Hide all job content sections
+    const jobContents = document.querySelectorAll('.job-content');
+    jobContents.forEach((content) => {
+      content.style.display = 'none';
+    });
+    
+    // Show the selected job content
+    const selectedJobId = event.target.getAttribute('data-job-id');
+    const selectedJobContent = document.getElementById(selectedJobId);
+    selectedJobContent.style.display = 'block';
+  }
   </script> 
 
-<section class="job-description">
-  <div class="container">
-    <div class="description-content">
-    Job description content will be displayed here..
-    </div>
-  </div>
-</section>  
-</body>
-</html>
+
+
 <style>
   .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.job-tag-toggle {
-  display: inline-flex;
-  align-items: center;
-  margin-right: 15px;
-  cursor: pointer;
-}
-
-.job-tag-toggle__input {
-  display: none;
-}
-
-.job-tag-toggle__content {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  border-radius: 20px;
-  background-color: #f0f0f0;
-  transition: background-color 0.3s ease;
-}
-
-.job-tag-toggle__input:checked ~ .job-tag-toggle__content {
-  background-color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .job-tag-toggle {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 15px;
+    cursor: pointer;
+  }
+  
+  .job-tag-toggle__input {
+    display: none;
+  }
+  
+  .job-tag-toggle__content {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .job-tag-toggle__input:checked ~ .job-tag-toggle__content {
+    background-color: #333;
   color: #fff;
 }
 
@@ -1326,122 +1045,12 @@ jobTagInputs.forEach(function(input) {
 
 </style>
 
-    <style>
-      /* Hide all job content sections initially */
-      .job-content {
-        display: none;
-      }
-    </style>
-<script>
+<!-- <style>
+  /* Hide all job content sections initially */
+  .job-content {
+    display: none;
+  }
+  </style> -->
 
 
-// Get the job description element
-var jobDescription = document.querySelector('.job-description .description-content');
-
-// Get the radio inputs for job tags
-var jobTagInputs = document.querySelectorAll('.job-tag-toggle__input');
-
-// Add event listeners to the job tag inputs
-jobTagInputs.forEach(function(input) {
-  input.addEventListener('click', function() {
-    var selectedValue = this.value;
-
-    // Hide all job descriptions
-    var allDescriptions = document.querySelectorAll('.job-description .description-content');
-    allDescriptions.forEach(function(description) {
-      description.style.display = 'none';
-    });
-
-    if (selectedValue === '[data-filter~=engineering]') {
-      jobDescription.textContent = 'Engineering job description goes here., please enter a description';
-    } else if (selectedValue === '[data-filter~=product]') {
-      jobDescription.textContent = 'Product job description goes here.';
-    } else if (selectedValue === '[data-filter~=support]') {
-      jobDescription.textContent = 'Support job description goes here.';
-    } else if (selectedValue === '[data-filter~=finance]') {
-      jobDescription.textContent = 'Finance job description goes here.';
-    } else if (selectedValue === '[data-filter~=security]') {
-      jobDescription.textContent = 'Security job description goes here.';
-    } else if (selectedValue === '[data-filter~=operations]') {
-      jobDescription.textContent = 'Operations job description goes here.';
-    } else if (selectedValue === '[data-filter~=marketing]') {
-      jobDescription.textContent = 'Marketing job description goes here.';
-    } else if (selectedValue === '[data-filter~=data]') {
-      jobDescription.textContent = 'Data job description goes here.';
-    } else if (selectedValue === '[data-filter~=design]') {
-      jobDescription.textContent = 'Design job description goes here.';
-    } else if (selectedValue === '[data-filter~=legal]') {
-      jobDescription.textContent = 'Legal job description goes here.';
-    } else if (selectedValue === '[data-filter~=sales]') {
-      jobDescription.textContent = 'Sales job description goes here.';
-    } else {
-      jobDescription.textContent = ''; // Clear the job description if no job tag is selected
-    }
-
-    // Show the current job description
-    jobDescription.style.display = 'block';
-  });
-});
-
-
-
-// Get the job description element
-var jobDescription = document.querySelector('.job-description .description-content');
-
-// Get the radio inputs for job tags
-var jobTagInputs = document.querySelectorAll('.job-tag-toggle__input');
-
-// Store the previously selected input
-var previousInput = null;
-
-// Add event listeners to the job tag inputs
-jobTagInputs.forEach(function(input) {
-  input.addEventListener('click', function() {
-    var selectedValue = this.value;
-
-    // Hide the previously displayed job description
-    if (previousInput !== null) {
-      var previousJobDescription = document.querySelector(previousInput.dataset.filter);
-      previousJobDescription.style.display = 'none';
-    }
-
-    // Show the current job description
-    var currentJobDescription = document.querySelector(selectedValue);
-    currentJobDescription.style.display = 'block';
-
-    // Update the previous input
-    previousInput = this;
-
-  });
-});
-
-
-
- 
-  // Show job description when a job is clicked
-  jobListings.forEach(listing => {
-    listing.addEventListener('click', function () {
-      jobDescription.textContent = this.querySelector('.job-description').textContent;
-    });
-  });
-
-  // Filter jobs when toggles are clicked
-  filterToggles.forEach(toggle => {
-    toggle.addEventListener('change', filterJobs);
-  });
-});
-// Get the job description element
-var jobDescription = document.querySelector('.job-description .description-content');
-
-// Get the engineering radio input
-var engineeringRadio = document.querySelector('input[value="[data-filter~=engineering]"]');
-
-// Add event listener to the engineering radio input
-engineeringRadio.addEventListener('click', function() {
-  // Update the job description content
-  jobDescription.textContent = 'Engineering job description goes here.';
-});
-
-</script>
-
-
+@include('frontend.layouts.footer')
